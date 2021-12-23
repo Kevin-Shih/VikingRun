@@ -8,7 +8,7 @@ public class ScoreCal : MonoBehaviour
 {
 	// Start is called before the first frame update
 	public static float score = 0;
-
+	public bool start=false;
     void Start()
     {
 		score = 0;
@@ -18,7 +18,11 @@ public class ScoreCal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		score += Time.deltaTime * 10;
-		gameObject.GetComponent<Text>().text = String.Format("Score: {0:d6}", (int)score);
+		if (start)
+		{
+			score += Time.deltaTime * 10;
+			gameObject.GetComponent<Text>().text = String.Format("Score: {0:d6}", (int)score);
+		}
+		
 	}
 }

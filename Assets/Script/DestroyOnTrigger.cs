@@ -20,7 +20,7 @@ public class DestroyOnTrigger : MonoBehaviour
 		Debug.Log(other.gameObject.name);
 		if (other.gameObject.name == "Viking_Axes")
 		{
-			(GameObject.Find("Coin").GetComponent<CoinSpawner>()).coinList.Remove(gameObject.transform);
+			(GameObject.Find("CoinAndObstacle").GetComponent<CoinSpawner>()).coinList.Remove(gameObject.transform);
 			Destroy(gameObject);
 			ScoreCal.score += 20;
 		}

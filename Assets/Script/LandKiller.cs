@@ -10,12 +10,12 @@ public class LandKiller : MonoBehaviour
     {
 		roadList = new List<Transform>();
 		roadList.Add(GameObject.Find("big_module_01").transform);
-		roadList.Add(GameObject.Find("road_init_0").transform);
 		roadList.Add(GameObject.Find("road_init_1").transform);
-    }
+		roadList.Add(GameObject.Find("StartGate").transform);
+	}
 
-    // Update is called once per frame
-    void Update()
+	// Update is called once per frame
+	void Update()
     {
 		if (roadList.Count > 6)
 		{

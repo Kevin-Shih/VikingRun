@@ -7,13 +7,15 @@ public class LandGenerator : MonoBehaviour
 {
 	public Transform road;
 	public Transform intersect;
+	VikingController viking;
 	System.Random rand;
 	public static int i = 0;
-	public static int consistancy = 2; //大於0時必先走consistancy個直線的block
+	public static int consistancy = 3; //大於0時必先走consistancy個直線的block
 	public int direction = 0; //0:朝Z 1:朝X 2:朝-Z 3:朝-X
-	public int[,,] dir2coor = { { { 1, 0 }, { 0, 1 } }, { { 0, 1 }, { -1, 0 } } , { { -1, 0 }, { 0, -1 } } , { { 0, -1 }, { 1, 0 } } };
+	int[,,] dir2coor = { { { 1, 0 }, { 0, 1 } }, { { 0, 1 }, { -1, 0 } } , { { -1, 0 }, { 0, -1 } } , { { 0, -1 }, { 1, 0 } } };
 	float T_x, T_z, T_x_inter, T_z_inter, T_base_turn = 18f, T_base_straight = 31f;
 	CoinSpawner coinSpawner;
+	bool isTrigered = false;
 	/*
 	dir2coor 即每個direction對應的旋轉矩陣，用於計算Road平移量
 	T = R*[X,Z]'
@@ -25,7 +27,8 @@ public class LandGenerator : MonoBehaviour
 	void Start()
     {
 		rand = new System.Random();
-		coinSpawner = GameObject.Find("Coin").GetComponent<CoinSpawner>();
+		coinSpawner = GameObject.Find("CoinAndObstacle").GetComponent<CoinSpawner>();
+		viking = GameObject.Find("Viking_Axes").GetComponent<VikingController>();
 	}
 
     // Update is called once per frame
@@ -36,12 +39,26 @@ public class LandGenerator : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other) //when trigger gen next road
 	{
+		if (isTrigered)
+			return;
+		viking.frames2be_seized+=7;
+		if (viking.frames2be_seized > 7)
+			viking.frames2be_seized = 7;
 		Transform t = Instantiate(road);
 		double p = rand.NextDouble();
 		if(consistancy > 0 || p < 0.6)
 		{
-			T_x = dir2coor[direction, 0, 1] * T_base_straight;
-			T_z = dir2coor[direction, 1, 1] * T_base_straight;
+			p = rand.NextDouble();
+			if (p < 0.3) 
+			{
+				T_x = dir2coor[direction, 0, 1] * (T_base_straight+15);
+				T_z = dir2coor[direction, 1, 1] * (T_base_straight+15);
+			}
+			else
+			{
+				T_x = dir2coor[direction, 0, 1] * T_base_straight;
+				T_z = dir2coor[direction, 1, 1] * T_base_straight;
+			}
 			//normal straight
 			t.localPosition = new Vector3(transform.position.x + T_x, -1, transform.position.z + T_z);
 			t.name = "road" + (i % 20).ToString();
@@ -138,5 +155,6 @@ public class LandGenerator : MonoBehaviour
 			coinSpawner.GenCoin(t2, (t2.gameObject.GetComponent<LandGenerator>()).direction);
 		}
 		coinSpawner.GenCoin(t, (t.gameObject.GetComponent<LandGenerator>()).direction);
+		isTrigered = true;
 	}
 }
