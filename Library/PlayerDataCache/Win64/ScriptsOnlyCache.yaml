@@ -56,25 +56,25 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1442}
+      Script: {instanceID: 1444}
     - Class: 114
-      Script: {instanceID: 1486}
+      Script: {instanceID: 1488}
     - Class: 114
-      Script: {instanceID: 2000}
+      Script: {instanceID: 2002}
     - Class: 114
-      Script: {instanceID: 2122}
+      Script: {instanceID: 2124}
     - Class: 114
-      Script: {instanceID: 2288}
+      Script: {instanceID: 2290}
     - Class: 114
-      Script: {instanceID: 2400}
+      Script: {instanceID: 2402}
     - Class: 114
-      Script: {instanceID: 2564}
+      Script: {instanceID: 2566}
     - Class: 114
-      Script: {instanceID: 2754}
+      Script: {instanceID: 2756}
     - Class: 114
-      Script: {instanceID: 2834}
+      Script: {instanceID: 2836}
     - Class: 114
-      Script: {instanceID: 3744}
+      Script: {instanceID: 3746}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -137,41 +137,41 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1442}
+      Script: {instanceID: 1444}
     - Class: 114
-      Script: {instanceID: 1486}
+      Script: {instanceID: 1488}
     - Class: 114
-      Script: {instanceID: 1748}
+      Script: {instanceID: 1750}
     - Class: 114
-      Script: {instanceID: 2000}
+      Script: {instanceID: 2002}
     - Class: 114
-      Script: {instanceID: 2042}
+      Script: {instanceID: 2044}
     - Class: 114
-      Script: {instanceID: 2288}
+      Script: {instanceID: 2290}
     - Class: 114
-      Script: {instanceID: 2400}
+      Script: {instanceID: 2402}
     - Class: 114
-      Script: {instanceID: 2550}
+      Script: {instanceID: 2552}
     - Class: 114
-      Script: {instanceID: 2564}
+      Script: {instanceID: 2566}
     - Class: 114
-      Script: {instanceID: 2648}
+      Script: {instanceID: 2650}
     - Class: 114
-      Script: {instanceID: 2834}
+      Script: {instanceID: 2836}
     - Class: 114
-      Script: {instanceID: 3246}
+      Script: {instanceID: 3248}
     - Class: 114
-      Script: {instanceID: 3294}
+      Script: {instanceID: 3296}
     - Class: 114
-      Script: {instanceID: 3440}
+      Script: {instanceID: 3442}
     - Class: 114
-      Script: {instanceID: 3648}
+      Script: {instanceID: 3650}
     - Class: 114
-      Script: {instanceID: 3906}
+      Script: {instanceID: 3908}
     - Class: 114
-      Script: {instanceID: 4294}
+      Script: {instanceID: 4296}
     - Class: 114
-      Script: {instanceID: 4346}
+      Script: {instanceID: 4348}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -699,4 +699,4 @@ ScriptsOnlyBuild:
   scenePathNames:
   - Assets/Scenes/GameMenu.unity
   - Assets/Scenes/MainScene.unity
-  playerPath: D:/Viking Run_v1.0/VikingRun.exe
+  playerPath: D:/Viking Run_v1.1/VikingRun.exe
