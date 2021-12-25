@@ -10,6 +10,7 @@ public class GameOverController : MonoBehaviour, IPointerClickHandler
 {
 	CanvasGroup Gameover;
 	VikingController viking;
+	ScoreCal start;
 	Text fScore;
 	Text reason;
 	bool first=true;
@@ -26,6 +27,7 @@ public class GameOverController : MonoBehaviour, IPointerClickHandler
 		viking = GameObject.Find("Viking_Axes").GetComponent<VikingController>();
 		fScore = GameObject.Find("FinalScore").GetComponent<Text>();
 		reason = GameObject.Find("Reason").GetComponent<Text>();
+		start = GameObject.Find("Score").GetComponent<ScoreCal>();
 		Gameover.alpha = 0;
 		Gameover.interactable = false;
 		Gameover.blocksRaycasts = false;
@@ -34,7 +36,7 @@ public class GameOverController : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
-		if (viking.gameover)
+		if (start.start && viking.gameover)
 		{
 			if (first)
 			{
@@ -52,6 +54,10 @@ public class GameOverController : MonoBehaviour, IPointerClickHandler
 				reason.text = viking.gameover_message;
 				first = false;
 			}
+		}
+		else if (viking.gameover) //¨¾¤îstart«e¸õ¼Ó reload scene
+		{
+			SceneManager.LoadScene(1);
 		}
     }
 }

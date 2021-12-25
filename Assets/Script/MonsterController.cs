@@ -8,6 +8,7 @@ public class MonsterController : MonoBehaviour
 {
 	Transform viking;
 	Rigidbody monsterRigidbody;
+	ScoreCal start;
 	public bool first = true;
 	float countdown = 1.3f;
 	// Start is called before the first frame update
@@ -15,17 +16,18 @@ public class MonsterController : MonoBehaviour
     {
 		viking = GameObject.Find("Viking_Axes").transform;
 		monsterRigidbody = gameObject.GetComponent<Rigidbody>();
+		start = GameObject.Find("Score").GetComponent<ScoreCal>();
 	}
 
     // Update is called once per frame
     void Update()
     {
-		if (first)
+		if (first && start.start)
 		{
 			transform.position = new Vector3(viking.position.x, 1.5f, viking.position.z) - viking.forward * 15f;
 			transform.rotation = viking.rotation;
 		}
-		else
+		if (!first)
 		{
 			countdown -= Time.deltaTime;
 			if (countdown <= 0)
@@ -39,11 +41,6 @@ public class MonsterController : MonoBehaviour
 
 	public void Seize()
 	{
-		if (first)
-		{
-			transform.position = new Vector3(viking.position.x, 1.5f, viking.position.z) - viking.forward * 15f;
-			transform.rotation = viking.rotation;
-		}
 		first = false;
 		monsterRigidbody.velocity = transform.forward * 20f;
 	}
